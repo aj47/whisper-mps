@@ -61,4 +61,18 @@ The `whisper-mps` repo provides all-round support for running Whisper in various
                   The YouTube video URL. (Deprecated)
   --output-file-name OUTPUT_FILE_NAME
                   The output file name for the transcribed text JSON.
+  --initial_prompt INITIAL_PROMPT
+                  Optional text to provide as a prompt for the first window. This can be used to provide custom vocabularies or proper nouns to make it more likely to predict those words correctly.
+```
+
+## Custom Vocabulary Support
+
+You can now use the `--initial_prompt` parameter to improve transcription accuracy for custom vocabulary, technical terms, or proper nouns:
+
+```bash
+# Example: Transcribe with custom vocabulary
+whisper-mps --file-name audio.mp3 --initial_prompt "custom vocab to know: TensorFlow, PyTorch, MLX, Anthropic, Claude"
+
+# Example: Transcribe with domain-specific terms
+whisper-mps --file-name medical_audio.wav --model-name base --initial_prompt "Medical terms: stethoscope, diagnosis, prescription, cardiovascular"
 ```
